@@ -1,0 +1,55 @@
+{
+  "name": "lwm2m-node-lib",
+  "description": "Library for developing servers and client of OMA Lightweight M2M",
+  "version": "1.1.0-next",
+  "homepage": "https://github.com/telefonicaid/lwm2m-node-lib",
+  "author": {
+    "name": "Daniel Moran",
+    "email": "daniel.moranjimenez@telefonica.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/telefonicaid/lwm2m-node-lib"
+  },
+  "bugs": {
+    "url": "https://github.com/telefonicaid/lwm2m-node-lib/issues"
+  },
+  "main": "lib/lwm2m-node-lib",
+  "engines": {
+    "node": ">=6.14.4"
+  },
+  "scripts": {
+    "clean": "rm -rf package-lock.json && rm -rf node_modules && rm -rf coverage",
+    "test": "mocha --recursive 'test/**/*.js' --reporter spec --timeout 3000 --ui bdd --exit",
+    "test:watch": "npm run test -- -w ./lib",
+    "lint": "jshint lib/ --config .jshintrc && jshint test/ --config test/.jshintrc",
+    "test:coverage": "istanbul cover _mocha -- --recursive 'test/**/*.js' --reporter spec --exit",
+    "watch": "watch 'npm test && npm run lint' ./lib ./test",
+    "debug:app": "node --inspect-brk ./app.js"
+  },
+  "bin": {
+    "iotagent-lwm2m-client": "bin/iotagent-lwm2m-client.js",
+    "iotagent-lwm2m-server": "bin/iotagent-lwm2m-server.js"
+  },
+  "dependencies": {
+    "async": "2.6.1",
+    "coap": "0.22.0",
+    "coap-cli": "0.5.1",
+    "command-node": "0.1.1",
+    "logops": "2.1.0",
+    "mongodb": "3.1.9",
+    "mongoose": "5.3.10",
+    "mongoose-plugin-autoinc": "1.1.9",
+    "underscore": "1.9.1"
+  },
+  "devDependencies": {
+    "eslint-config-egg": "^7.3.1",
+    "istanbul": "~0.4.5",
+    "jshint": "~2.9.6",
+    "mocha": "5.2.0",
+    "proxyquire": "2.1.0",
+    "should": "13.2.3",
+    "watch": "~1.0.2"
+  },
+  "keywords": []
+}
